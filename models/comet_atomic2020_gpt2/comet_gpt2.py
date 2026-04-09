@@ -19,7 +19,17 @@ import logging
 
 from torch import cuda
 
+
+
+# = START: fix for incorrect module import
+import sys
+from pathlib import Path
+
+sys.path.append(str(Path(__file__).resolve().parents[2]))
+
 from split.utils import write_items
+
+# =   END: fix for incorrect module import
 
 from optparse import OptionParser
 

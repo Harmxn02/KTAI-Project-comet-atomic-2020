@@ -20,6 +20,16 @@ class Comet:
         self.tokenizer = AutoTokenizer.from_pretrained(model_path)
         task = "summarization"
         use_task_specific_params(self.model, task)
+
+        # Move task-specific params from model.config to model.generation_config,
+        # then clear them from model.config to avoid the deprecation error
+        task_params = self.model.config.task_specific_params
+        if task_params and task in task_params:
+            self.model.generation_config.update(**task_params[task])
+            for key in task_params[task]:
+                if hasattr(self.model.config, key):
+                    delattr(self.model.config, key)
+
         self.batch_size = 1
         self.decoder_start_token_id = None
 
@@ -111,7 +121,7 @@ if __name__ == "__main__":
 
     # sample usage (reproducing AAAI)
     print("model loading ...")
-    comet = Comet("./comet-atomic_2020_BART_aaai")
+    comet = Comet(Path("./comet-atomic_2020_BART").resolve())
     comet.model.zero_grad()
     print("model loaded")
     queries = []
@@ -126,7 +136,7 @@ if __name__ == "__main__":
 
     # sample usage (reproducing demo)
     print("model loading ...")
-    comet = Comet("./comet-atomic_2020_BART")
+    comet = Comet(Path("./comet-atomic_2020_BART").resolve())
     comet.model.zero_grad()
     print("model loaded")
     queries = []

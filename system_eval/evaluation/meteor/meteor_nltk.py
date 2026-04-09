@@ -24,7 +24,7 @@ class Meteor:
 
         for i in imgIds:
             assert(len(res[i]) == 1)
-            score = round(meteor_score(gts[i], res[i][0]), 4)
+            score = round(meteor_score([ref.split() for ref in gts[i]], res[i][0].split()), 4)
             scores.append(score)
         #print('{}\n'.format(eval_line))
         #self.meteor_p.stdin.write('{}\n'.format(eval_line))
