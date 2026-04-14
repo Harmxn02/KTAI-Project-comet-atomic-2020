@@ -7,6 +7,10 @@
 #= SECOND ITERATION
 #= A function that supresses stdout and stderr for the duration of a block, to silence the QGEvalCap output during evaluation
 
+#= THIRD ITERATION
+#= Commented out the print statement that outputs the entire scores_per_model dict, which is very large and hides the first parts of the output due to my terminal having a scrollback limit. The scores are still saved to a timestamped JSONL file in the results directory for later inspection.
+
+
 # automatic_eval.py
 
 import argparse
@@ -349,7 +353,7 @@ def main():
 
     import datetime
     date = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
-    print(scores_per_model)
+    # print(scores_per_model)
 
     write_jsonl('./results/scores_{}.jsonl'.format(date), scores_per_model)
     print(tabulate(rows, headers='firstrow', tablefmt='latex', floatfmt='#.3f'))

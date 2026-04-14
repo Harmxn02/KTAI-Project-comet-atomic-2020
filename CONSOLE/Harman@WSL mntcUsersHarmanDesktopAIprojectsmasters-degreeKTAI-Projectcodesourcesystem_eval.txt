@@ -1,0 +1,86 @@
+(venv) WSL system_eval$ python automatic_eval.py --input_file BART/BART-atomic_2020.json
+/mnt/c/Users/Harman/Desktop/AI/projects/masters-degree/KTAI-Project/code/source/venv/lib/python3.12/site-packages/nltk/translate/bleu_score.py:577: UserWarning:
+The hypothesis contains 0 counts of 2-gram overlaps.
+Therefore the BLEU score evaluates to 0, independently of
+how many N-gram overlaps of lower order it contains.
+Consider using lower n-gram order or use SmoothingFunction()
+  warnings.warn(_msg)
+/mnt/c/Users/Harman/Desktop/AI/projects/masters-degree/KTAI-Project/code/source/venv/lib/python3.12/site-packages/nltk/translate/bleu_score.py:577: UserWarning:
+The hypothesis contains 0 counts of 3-gram overlaps.
+Therefore the BLEU score evaluates to 0, independently of
+how many N-gram overlaps of lower order it contains.
+Consider using lower n-gram order or use SmoothingFunction()
+  warnings.warn(_msg)
+/mnt/c/Users/Harman/Desktop/AI/projects/masters-degree/KTAI-Project/code/source/venv/lib/python3.12/site-packages/nltk/translate/bleu_score.py:577: UserWarning:
+The hypothesis contains 0 counts of 4-gram overlaps.
+Therefore the BLEU score evaluates to 0, independently of
+how many N-gram overlaps of lower order it contains.
+Consider using lower n-gram order or use SmoothingFunction()
+  warnings.warn(_msg)
+gens non-none 3966
+
+============================================================
+  BLEU scores per relation type
+============================================================
+| Name        |   Count |   BLEU-1 |   BLEU-2 |   BLEU-3 |   BLEU-4 |
+|-------------|---------|----------|----------|----------|----------|
+| xReason     |       1 |    0.9   |    0.837 |    0.706 |    0.562 |
+| HinderedBy  |     378 |    0.891 |    0.805 |    0.718 |    0.647 |
+| ObjectUse   |     192 |    0.876 |    0.777 |    0.664 |    0.57  |
+| xWant       |     359 |    0.854 |    0.717 |    0.603 |    0.472 |
+| xAttr       |     355 |    0.85  |    0.638 |    0.516 |    0.462 |
+| HasSubEvent |      15 |    0.803 |    0.697 |    0.614 |    0.518 |
+| isFilledBy  |     129 |    0.787 |    0.574 |    0.472 |    0.362 |
+| xEffect     |     257 |    0.781 |    0.596 |    0.449 |    0.346 |
+| xNeed       |     363 |    0.774 |    0.647 |    0.54  |    0.433 |
+| oWant       |     135 |    0.769 |    0.626 |    0.519 |    0.404 |
+| xIntent     |     287 |    0.688 |    0.551 |    0.465 |    0.365 |
+| oEffect     |      27 |    0.684 |    0.524 |    0.379 |    0.309 |
+| xReact      |     362 |    0.655 |    0.489 |    0.411 |    0.388 |
+| oReact      |      77 |    0.635 |    0.492 |    0.418 |    0.362 |
+| isBefore    |     424 |    0.623 |    0.518 |    0.452 |    0.403 |
+| isAfter     |     432 |    0.612 |    0.507 |    0.441 |    0.394 |
+| AtLocation  |      88 |    0.6   |    0.452 |    0.407 |    0.327 |
+| NotDesires  |       1 |    0.5   |    0     |    0     |    0     |
+| CapableOf   |      31 |    0.462 |    0.238 |    0.153 |    0.139 |
+| MadeUpOf    |      19 |    0.442 |    0.263 |    0.202 |    0.202 |
+| HasProperty |      24 |    0.428 |    0.233 |    0.135 |    0.112 |
+| Desires     |       1 |    0.35  |    0.235 |    0     |    0     |
+| Causes      |       9 |    0.315 |    0.197 |    0.131 |    0.111 |
+
+============================================================
+  BLEU scores per ATOMIC2020 category
+============================================================
+| Name               |   Count |   BLEU-1 |   BLEU-2 |   BLEU-3 |   BLEU-4 |
+|--------------------|---------|----------|----------|----------|----------|
+| social-interaction |    2222 |    0.763 |    0.605 |    0.498 |    0.412 |
+| physical-entity    |     356 |    0.716 |    0.582 |    0.492 |    0.418 |
+| event-centred      |    1388 |    0.708 |    0.598 |    0.523 |    0.462 |
+
+Overall: BLEU-1=0.740  BLEU-2=0.600  BLEU-3=0.506  BLEU-4=0.430
+Saved gens in BART/BART-atomic_2020_gens.jsonl
+len score: 5000
+Loading weights: 100%|████████████████████████████████████████████████████████████████████████████████| 199/199 [00:00<00:00, 1385.60it/s]
+BertModel LOAD REPORT from: bert-base-uncased
+Key                                        | Status     |  |
+-------------------------------------------+------------+--+-
+cls.predictions.bias                       | UNEXPECTED |  |
+cls.predictions.transform.LayerNorm.weight | UNEXPECTED |  |
+cls.seq_relationship.weight                | UNEXPECTED |  |
+cls.predictions.transform.dense.weight     | UNEXPECTED |  |
+cls.predictions.transform.LayerNorm.bias   | UNEXPECTED |  |
+cls.predictions.transform.dense.bias       | UNEXPECTED |  |
+cls.seq_relationship.bias                  | UNEXPECTED |  |
+
+Notes:
+- UNEXPECTED:   can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+\begin{tabular}{lrrrrrrrr}
+\hline
+                       &   Bleu\_1 &   Bleu\_2 &   Bleu\_3 &   Bleu\_4 &   METEOR &   ROUGE\_L &   CIDEr &   Bert Score \\
+\hline
+ BART-atomic\_2020\_gens &    0.468 &    0.286 &    0.189 &    0.130 &    0.330 &     0.495 &   0.640 &        0.636 \\
+\hline
+\end{tabular}
+                        Bleu_1  Bleu_2  Bleu_3  Bleu_4  METEOR  ROUGE_L CIDEr   Bert Score
+BART-atomic_2020_gens   0.468   0.286   0.189   0.130   0.330   0.495   0.640   0.636
+(venv) WSL system_eval$
