@@ -1,6 +1,6 @@
 # RESULTS
 
-The code was modified to fit my strategy, and the results are whatever was outputted to my console. After which I asked Claude to generate a write-up of the results, which is what you see below.
+The code was modified to fit my strategy, and the results are whatever was outputted to my console. After which I ~~asked Claude to generate a~~ made a write-up of the results, which is what you see below.
 
 ---
 
